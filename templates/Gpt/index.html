@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мій GPT-чат</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Мій GPT-чат</h1>
+
+    <div id="chat">
+        {% for msg in messages %}
+            <div class="msg {{ msg.role }}">{{ msg.content }}</div>
+        {% endfor %}
+    </div>
+
+    <form id="chat-form">
+        <input type="text" id="message" placeholder="Напишіть повідомлення..." autocomplete="off" required>
+        <button type="submit" id="send-btn">Надіслати</button>
+        <button type="button" id="clear">Очистити</button>
+    </form>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
